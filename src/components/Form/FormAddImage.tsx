@@ -59,7 +59,7 @@ export function FormAddImage({ closeModal }: FormAddImageProps): JSX.Element {
   const queryClient = useQueryClient();
   const mutation = useMutation(
     async (imageData: ImageDataProps) => {
-      const response = await api.post("images", imageData);
+      const response = await api.post("/api/images", imageData);
 
       return response.data.user;
     },
@@ -130,6 +130,7 @@ export function FormAddImage({ closeModal }: FormAddImageProps): JSX.Element {
           trigger={trigger}
           name="image"
           onChange={() => {}}
+          error={errors.image}
           {...register("image", formValidations.image)}
         />
 
